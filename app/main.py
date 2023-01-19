@@ -24,3 +24,7 @@ app.include_router(auth.router, tags=['Auth'], prefix='/api/auth')
 app.include_router(user.router, tags=['Users'], prefix='/api/users')
 
 
+@app.get('/')
+async def home():
+    return {"msg":"Hello"}
+
