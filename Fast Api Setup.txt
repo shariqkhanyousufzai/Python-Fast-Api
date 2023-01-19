@@ -9,8 +9,7 @@ set-executionpolicy remotesigned -A
 
 5. To run unicorn server
  uvicorn main:app --reload
-
-
+ uvicorn app.main:app --host localhost --port 8000 --reload
 
 fastapi
 uvicorn[standard]
