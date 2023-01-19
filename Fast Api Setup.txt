@@ -1,0 +1,16 @@
+1. python -V
+2. python -m venv env
+
+3. Now Run To Activate Script:
+./env/Scripts/activate
+
+4. if Scripts disable open up power shell and type this:
+set-executionpolicy remotesigned -A
+
+5. To run unicorn server
+ uvicorn main:app --reload
+
+
+
+fastapi
+uvicorn[standard]
