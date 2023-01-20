@@ -14,6 +14,13 @@ class UserBaseSchema(BaseModel):
     class Config:
         orm_mode = True
 
+class UpdateUserSchema(BaseModel):
+    name: str
+    photo: str
+    phone: str
+
+    class Config:
+        orm_mode = True
 
 class CreateUserSchema(UserBaseSchema):
     password: constr(min_length=8)
