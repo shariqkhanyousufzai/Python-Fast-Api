@@ -29,8 +29,8 @@ class CreateUserSchema(UserBaseSchema):
 
 
 class LoginUserSchema(BaseModel):
-    email: EmailStr
-    password: constr(min_length=8)
+    email: EmailStr | None = "addy@gmail.com"
+    password: constr(min_length=8) | None = "qwerty123"
 
 
 class UserResponseSchema(UserBaseSchema):
@@ -45,4 +45,7 @@ class UserResponse(BaseModel):
 
 class FindUserByEmail(BaseModel):
     email: EmailStr
+
+class AccessFiles(BaseModel):
+    image: str
 

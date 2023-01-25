@@ -8,6 +8,8 @@ from fastapi.responses import FileResponse
 
 from fastapi import Form;
 
+from .schemas.schemas import AccessFiles
+
 IMAGEDIR = "./app/uploads/"
 
 app = FastAPI()
@@ -32,8 +34,9 @@ app.include_router(book.router, tags=['Books'], prefix='/api/books')
 app.include_router(cart.router, tags=['Cart'], prefix='/api/cart')
 
 
-@app.get('/files',tags=['Access Any File From Uploads'])
+@app.get('/files/{image}',tags=['Access Any File From Uploads'])
 async def get_files(image):
     # notice you can use FileResponse now because it expects a path
     return FileResponse(IMAGEDIR+image)
+        
 
