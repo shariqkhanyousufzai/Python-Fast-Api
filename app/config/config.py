@@ -13,6 +13,8 @@ class Settings(BaseSettings):
 
     CLIENT_ORIGIN: str
 
+    APP_URL: str
+
     class Config:
         env_file = './.env'
 

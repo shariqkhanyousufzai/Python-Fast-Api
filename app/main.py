@@ -4,6 +4,12 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.config.config import settings
 from app.routers import auth, user, book
 
+from fastapi.responses import FileResponse
+
+from fastapi import Form;
+
+IMAGEDIR = "./app/uploads/"
+
 app = FastAPI()
 
 origins = [
@@ -25,7 +31,8 @@ app.include_router(user.router, tags=['Users'], prefix='/api/users')
 app.include_router(book.router, tags=['Books'], prefix='/api/books')
 
 
-# @app.get('/')
-# async def home():
-#     return {"msg":"Hello"}
+@app.get('/files')
+async def get_files(image):
+    # notice you can use FileResponse now because it expects a path
+    return FileResponse(IMAGEDIR+image)
 
