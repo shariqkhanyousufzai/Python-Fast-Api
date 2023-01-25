@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.config.config import settings
-from app.routers import auth, user, book
+from app.routers import auth, user, book, cart
 
 from fastapi.responses import FileResponse
 
@@ -29,9 +29,10 @@ app.add_middleware(
 app.include_router(auth.router, tags=['Auth'], prefix='/api/auth')
 app.include_router(user.router, tags=['Users'], prefix='/api/users')
 app.include_router(book.router, tags=['Books'], prefix='/api/books')
+app.include_router(cart.router, tags=['Cart'], prefix='/api/cart')
 
 
-@app.get('/files')
+@app.get('/files',tags=['Access Any File From Uploads'])
 async def get_files(image):
     # notice you can use FileResponse now because it expects a path
     return FileResponse(IMAGEDIR+image)

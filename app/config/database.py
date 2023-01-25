@@ -16,4 +16,5 @@ User = db.users
 User.create_index([("email", pymongo.ASCENDING)], unique=True)
 
 Book = db.books
+Cart = db.cart
 
