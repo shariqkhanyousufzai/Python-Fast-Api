@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.config.config import settings
-from app.routers import auth, user, book, cart
+from app.routers import auth, user, book, cart, order
 
 from fastapi.responses import FileResponse
 
@@ -32,6 +32,7 @@ app.include_router(auth.router, tags=['Auth'], prefix='/api/auth')
 app.include_router(user.router, tags=['Users'], prefix='/api/users')
 app.include_router(book.router, tags=['Books'], prefix='/api/books')
 app.include_router(cart.router, tags=['Cart'], prefix='/api/cart')
+app.include_router(order.router, tags=['Order'], prefix='/api/order')
 
 
 @app.get('/files/{image}',tags=['Access Any File From Uploads'])
