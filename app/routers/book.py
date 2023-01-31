@@ -42,7 +42,7 @@ async def create_book(title: str = Form(),summary: str = Form(),description: str
             'summary' : summary,
             'description' : description,
             'price' : price,
-            'image' : settings.APP_URL+'files?image='+book_cover.filename,
+            'image' : settings.APP_URL+'files/'+book_cover.filename,
             'created_at' : datetime.now(),
             'updated_at' : datetime.now()
         }
